@@ -1,9 +1,13 @@
-import { clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+// Utilidad para combinar clases de Tailwind sin conflictos
+// Se usa en todos los componentes de la app así:
+// className={cn("flex p-4", isActive && "bg-blue-500")}
 
-// Esta función hace DOS cosas:
-// 1. clsx → convierte objetos/arrays en strings de clases
-// 2. twMerge → elimina clases de Tailwind en conflicto
+import { clsx } from "clsx"         // une clases en un string
+import { twMerge } from "tailwind-merge" // elimina clases duplicadas
+
 export function cn(...inputs) {
+  // ...inputs = acepta cualquier cantidad de clases
+  // clsx las une primero, twMerge limpia conflictos después
+  // Ejemplo: cn("p-4", "p-8") → "p-8"  (gana la última)
   return twMerge(clsx(inputs))
 }
