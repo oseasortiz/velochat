@@ -1,23 +1,32 @@
+/* Tailwind CSS - estas 3 líneas activan todos los estilos */
+/* base → normaliza estilos del navegador                  */
+/* components → clases de componentes reutilizables        */
+/* utilities → flex, p-4, text-blue-500, etc.              */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ── VARIABLES DE COLOR ──────────────────────────────── */
+/* Cambiando estas variables cambia el tema de toda la app */
+
+/* TEMA CLARO - activo por defecto */
 :root {
-  --background: #f9f9f9;
-  --foreground: #0f172a;
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
-  --secondary: #e2e8f0;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --border: #e2e8f0;
-  --radius: 0.75rem;
+  --background: #f9f9f9;         /* fondo principal */
+  --foreground: #0f172a;         /* texto principal */
+  --primary: #3b82f6;            /* azul - botones */
+  --primary-foreground: #ffffff; /* texto sobre botones */
+  --secondary: #e2e8f0;          /* fondos secundarios */
+  --muted: #f1f5f9;              /* elementos apagados */
+  --muted-foreground: #64748b;   /* texto apagado */
+  --border: #e2e8f0;             /* color de bordes */
+  --radius: 0.75rem;             /* bordes redondeados */
 }
 
+/* TEMA OSCURO - activo cuando <html> tiene class="dark" */
 .dark {
   --background: #0f172a;
   --foreground: #e2e8f0;
-  --primary: #3b82f6;
+  --primary: #3b82f6;            /* azul igual en ambos temas */
   --primary-foreground: #ffffff;
   --secondary: #1e293b;
   --muted: #1e293b;
@@ -25,17 +34,28 @@
   --border: #1e293b;
 }
 
+/* ── ESTILOS GLOBALES ────────────────────────────────── */
+
+/* box-sizing → padding y border no agrandan el elemento  */
+/* border-color → todos los bordes usan la variable       */
 * {
   box-sizing: border-box;
   border-color: var(--border);
 }
 
+/* Aplica tema a toda la app                              */
+/* antialiased → texto más suave en pantalla              */
 body {
   background-color: var(--background);
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
 }
 
+/* ── SCROLLBAR PERSONALIZADO ────────────────────────── */
+/* Solo visible en navegadores basados en Chrome/Edge     */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(100,100,100,0.3); border-radius: 9999px; }
+::-webkit-scrollbar-thumb {
+  background: rgba(100,100,100,0.3); /* gris semitransparente */
+  border-radius: 9999px;             /* completamente redondeado */
+}
